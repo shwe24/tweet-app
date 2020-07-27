@@ -1,0 +1,19 @@
+Algorithm,Accuracy,F1-score,category
+Naive Bayes,66.9854,58.4402,Pre-processed tweets
+SVM,77.73,76.57,Pre-processed tweets
+Bagging,77.23,75.34,Pre-processed tweets
+Logistic Regression,77.31,74.05,Pre-processed tweets
+Decision Tree,66.57,61.88,Pre-processed tweets
+KNN,63.97,64.96,Pre-processed tweets
+Random Forest,76.40,68.52,Pre-processed tweets
+Adaboost classifier,71.17,66.35,Pre-processed tweets
+Voting classifier,77.09,74.99,Pre-processed tweets
+Naive Bayes,65.80,55.75,Without pre-process
+SVM,80.96,80.28,Without pre-process
+Bagging,72.40,71.82,Without pre-process
+Logistic Regression,76.54,76.46,Without pre-process
+Decision Tree,66.30,66.50,Without pre-process
+KNN,71.99,71.32,Without pre-process
+Random Forest,71.27,73.80,Without pre-process
+Adaboost classifier,71.12,67.07,Without pre-process
+Voting classifier,76.41,73.95,Without pre-process
