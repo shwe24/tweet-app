@@ -4,8 +4,8 @@ import numpy as np
 import plotly.express as px
 import zipfile
 
-zf = zipfile.ZipFile('mobile.zip') 
-df = pd.read_csv(zf.open('mobile.csv'))
+import os
+os.system( '7z x mobile.7z' )
 
 st.title("Sentiment analysis of Mobile phone brands")
 st.sidebar.title("Customer Satisfaction Reviews on Mobile brands")
