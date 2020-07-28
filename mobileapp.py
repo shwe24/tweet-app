@@ -70,7 +70,7 @@ if nav=="Customer reviews":
 
 if nav=="Sentiment Analysis":
     st.sidebar.subheader("Comparing classifiers")
-    choice=st.sidebar.multiselect('Pick algorithm',('Naive Bayes','SVM','Bagging','Logistic Regression','Decision tree','KNN'))
+    choice=st.sidebar.multiselect('Pick algorithm',('Naive Bayes','SVM','Bagging','Logistic Regression','Random Forest','KNN'))
     if len(choice)>0:
         choice_data=alg[alg.Algorithm.isin(choice)]
         fig_choice=px.histogram(choice_data,x='Algorithm',y='Accuracy',color='category', facet_col='category',height=600, width=800,labels={'Algorithm':'Algorithms','Accuracy':'Accuracy'})
