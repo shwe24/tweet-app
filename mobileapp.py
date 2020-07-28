@@ -4,16 +4,15 @@ import numpy as np
 import plotly.express as px
 import zipfile
 
-import os
-os.system( '7z x mobile.7z' )
+zf = zipfile.ZipFile('mobile.zip') 
+
 
 st.title("Sentiment analysis of Mobile phone brands")
 st.sidebar.title("Customer Satisfaction Reviews on Mobile brands")
 
-data_link=("mobile.csv")
 @st.cache()
 def load_data():
-    df=pd.read_csv(data_link)
+    df = pd.read_csv(zf.open('mobile.csv'))
     senti={1:'Negative',2:'Negative',3:'Neutral',4:'Positive',5:'Positive'}
     df['Sentiment']=df['Rating'].map(senti)
     df=df.dropna()
