@@ -14,7 +14,7 @@ st.sidebar.title("Customer Satisfaction Reviews on Mobile brands")
 def load_data():
     df = pd.read_csv(zf.open('mobile.csv'))
     senti={1:'Negative',2:'Negative',3:'Neutral',4:'Positive',5:'Positive'}
-    df['Sentiment']=df['Rating'].map(senti)
+    df['Sentiment']=df['Ratings'].map(senti)
     df=df.dropna()
     return df
 
@@ -33,7 +33,7 @@ alg = load_data_alg()
 ##        f"<style> body{{ background-color: #FFE4E1;}}</style>",    
 ##        unsafe_allow_html=True
 ##    )
-brand=df['Brand Name'].value_counts().index.tolist()
+brand=df['BrandName'].value_counts().index.tolist()
 list_brand=brand[1:50]
 
 nav=st.sidebar.radio('Tabs: ',('Customer reviews','Sentiment Analysis'))
@@ -42,7 +42,7 @@ if nav=="Customer reviews":
     st.subheader("Customer reviews : Random Reviews")
     brand=st.selectbox('Brand name',(list_brand))
     random_tweet=st.radio('Sentiment',('Positive','Neutral','Negative'))
-    choice=df[df['Brand Name']==brand]
+    choice=df[df['BrandName']==brand]
     st.subheader("Random text:")
     st.write(choice.query('Sentiment==@random_tweet')[['Reviews']].sample(n=1).iat[0,0])
 
@@ -52,7 +52,7 @@ if nav=="Customer reviews":
     fig=px.bar(sent_count,x='Sentiment',y='Tweets', color='Tweets')
     st.plotly_chart(fig)
     numb=choice['Reviews'].count()
-    avg_rating=choice['Rating'].mean()
+    avg_rating=choice['Ratings'].mean()
     st.sidebar.markdown(f'<p style="font-size:30px"><b>Brand: {brand}</b></p>',unsafe_allow_html=True)
     if round(avg_rating)==5:
         st.sidebar.markdown(f'<center><h1>Overall Ratings</center><h1><p style="font-size:50px; color:green"><b><center>{round(avg_rating,1)}</center></b></p><center><img src="https://www.mortgagebrokergoldcoast.com/wp-content/uploads/2020/03/5-stars.png width=250 height=60"></img></center><center><p style="font-size:50px; color:green">Excellent</center></p></h1>', unsafe_allow_html=True)
