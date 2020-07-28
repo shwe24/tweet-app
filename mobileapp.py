@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import plotly.express as px
-import zipfile
+import zipfile36 as zipfile
 
 zf = zipfile.ZipFile('mobile.zip') 
 
